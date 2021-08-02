@@ -1,7 +1,7 @@
-const { ItemModel } = require("../database/items");
+const { UserModel } = require('../database/users');
 
 const cadastraItem = async (data) => {
-  const newItem = new ItemModel(data);
+  const newItem = new UserModel(data);
 
   await newItem.save();
 };
