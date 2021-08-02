@@ -1,7 +1,0 @@
-const getItems = () => {
-}
-
-const deleteItems = () => {
-
-}
-

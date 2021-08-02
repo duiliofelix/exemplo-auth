@@ -4,11 +4,10 @@ const users = require('./users');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.send('Hello World!');
+router.get('/health', (req, res) => {
+  res.send({ status: 'ok' });
 });
 
-router.use('/items', items);
 router.use('/users', users);
 
 module.exports = router;
