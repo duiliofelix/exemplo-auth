@@ -8,8 +8,9 @@ services:
     image: mongo
     volumes:
       - mongo:/data/db
+      - ./mongo_scripts:/docker-entrypoint-initdb.d
     ports:
-      - 27017:27017
+      - 27018:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root_pass
