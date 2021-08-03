@@ -8,5 +8,8 @@ router.get('/health', (req, res) => {
 });
 
 router.use('/users', users);
+router.use((req, res) => {
+  res.status(404).send('Not Found');
+});
 
 module.exports = router;
