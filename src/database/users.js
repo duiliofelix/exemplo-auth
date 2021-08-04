@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
-  nome: String,
+  name: String,
+  deleted: Boolean,
 });
-const UserModel = mongoose.Model(UserSchema, 'User');
+const UserModel = mongoose.model('User', UserSchema);
 
 module.exports = {
   UserSchema,
