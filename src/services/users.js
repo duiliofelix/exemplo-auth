@@ -1,5 +1,25 @@
 const { UserModel } = require('../database/users');
 
+const createUser = async (data) => {
+  const newUser = new UserModel(data);
+
+  newUser.role = 'peasant';
+
+  await newUser.save();
+
+  return newUser;
+};
+
+const findByUsernamePass = async (username, pass) => {
+  const user = await UserModel.findOne({
+    username,
+    pass,
+    deleted: { $ne: true },
+  });
+
+  return user;
+};
+
 const findById = async (id) => {
   const user = await UserModel.findOne({
     _id: id,
@@ -27,6 +47,8 @@ const deleteById = async (id) => {
 };
 
 module.exports = {
+  createUser,
+  findByUsernamePass,
   findById,
   findAll,
   deleteById,

@@ -1,10 +1,9 @@
-const { UserModel } = require('../../database/users');
+const { createUser } = require('../../services/users');
 
-const createUser = async (req, res) => {
-  const newUser = new UserModel(req.body);
-  await newUser.save();
+const createUserController = async (req, res) => {
+  const newUser = await createUser(req.body);
 
   res.send(newUser);
 };
 
-module.exports = createUser;
+module.exports = createUserController;
